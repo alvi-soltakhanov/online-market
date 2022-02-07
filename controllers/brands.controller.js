@@ -1,4 +1,3 @@
-const { findByIdAndRemove } = require("../models/Brand.model");
 const Brand = require("../models/Brand.model");
 
 module.exports.brandController = {
@@ -29,11 +28,11 @@ module.exports.brandController = {
   // Удалить бренд 
 
   deleteBrand: async (req, res) => {
-      try {
-        await findByIdAndRemove(req.params.id);
-        res.json("Бренд удален")
-      } catch (e) {
-          res.json(e);
-      }
+    try {
+      await findByIdAndRemove(req.params.id);
+      res.json("Бренд удален")
+    } catch (e) {
+      res.json(e);
+    }
   }
 };
