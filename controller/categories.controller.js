@@ -30,8 +30,12 @@ module.exports.categoriesController = {
     },
     editCategory: async (req, res) => {
         try {
-            const editCategory = await Category.findByIdAndUpdate(req.params.id)
-            res.json(editCategory)
+            await Category.findByIdAndUpdate(req.params.id,
+                {
+                   name: name,
+                   description: description, 
+                })
+            res.json('Категория изменена')
         } catch (e) {
             res.json(e)
         }
